@@ -1,0 +1,15 @@
+<GridLayout rows="auto, *">
+    <GridLayout row="0" columns="auto, *">
+        <TextField #itemField hint="Enter a new item" [(ngModel)]="currentItem.description" col="0"></TextField>
+        <Image src="res://ic_add" (tap)="add()" col="1"> </Image>
+    </GridLayout>
+    <ListView row="1" [items]="itemList.items">
+        <template let-item="item">
+            <GridLayout column="auto, *">
+                <Image col="0" *ngIf="!item.checked" src="res://ic_check_box_outline_blank_black_24dp"></Image>
+                <Image col="0" *ngIf="item.checked" src="res://ic_check_box_black_24dp"></Image>
+                <Label col="1" [text]="item.description"></Label>
+            </GridLayout>
+        </template>
+    </ListView>
+</GridLayout>

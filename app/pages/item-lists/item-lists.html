@@ -1,0 +1,14 @@
+<GridLayout rows="auto, *">
+    <GridLayout row="0" columns="*, auto">
+        <TextField col="0" #itemListField hint="Enter the name of the list" [(ngModel)]="currentItemList.title"></TextField>
+        <Image col="1" src="res://ic_add" (tap)="add()"></Image>
+    </GridLayout>
+    <ListView row="1" [items]="itemLists">
+        <template let-item="item">
+            <GridLayout columns="*, auto">
+                <Label col="0" [text]="item.title"] (tap)="select(item)"></Label>
+                <Image col="1" src="res://ic_clear_black_18dp" (tap)="delete()"></Image>
+            </GridLayout>
+        </template>
+    </ListView>
+</GridLayout>
